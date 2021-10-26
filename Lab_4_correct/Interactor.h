@@ -45,6 +45,7 @@ public:
 private:
 	
 	void ShowDialogItems(int);
+
 	BaseContainer* _flatsContainer  = new FlatsContainer;
 	BaseContainer* _candidatesContainer = new CandidatesContainer;
 	vector<MenuItem> _flatsMenuItems;

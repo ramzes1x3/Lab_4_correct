@@ -7,13 +7,14 @@ public:
 	virtual ~IDialog() = default;
 };
 
-//candidates
+//candidatesOperations
 class ShowAllCandidates1 : public IDialog {
 public:
 	virtual void operator() (BaseContainer* container) {
 		container->ShowCandidates();
 	}
 };
+
 
 class FindCandidate : public IDialog {
 public:
@@ -25,12 +26,14 @@ public:
 	}
 };
 
+
 class ShowAllCandidates : public IDialog {
 public:
 	virtual void operator() (BaseContainer* container) {
 		container->ShowCandidates();
 	}
 };
+
 
 class RemoveCandidate : public IDialog {
 public:
@@ -41,6 +44,7 @@ public:
 		container->RemoveCandidate(id);
 	}
 };
+
 
 class AddCandidate : public IDialog {
 public:
@@ -74,7 +78,8 @@ public:
 	}
 };
 
-//flats
+
+//flatsOperations
 class QuickFindFlatByArea : public IDialog {
 public:
 	virtual void operator() (BaseContainer* container) {
@@ -93,12 +98,14 @@ public:
 	}
 };
 
+
 class ShowAllFlats : public IDialog {
 public:
 	virtual void operator() (BaseContainer* container) {
 		container->ShowAllFlats();
 	}
 };
+
 
 class RemoveFlat : public IDialog {
 public:
@@ -110,6 +117,7 @@ public:
 	}
 };
 
+
 class FindFlat : public IDialog {
 public:
 	virtual void operator () (BaseContainer* container) {
@@ -119,6 +127,7 @@ public:
 		container->FindItem(area);
 	}
 };
+
 
 class AddFlat : public IDialog {
 public:
@@ -143,6 +152,7 @@ public:
 		container->AddFlat(tmpFlat);
 	}
 };
+
 
 class Exit : public IDialog {
 	virtual void operator() (BaseContainer* container) {}

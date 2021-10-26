@@ -1,5 +1,6 @@
 #include "FlatsContainer.h"
 
+
 void FlatsContainer::SetItem() {
 	ifstream fin("inputFlats.txt");
 	if (!fin.is_open()) {
@@ -22,12 +23,14 @@ void FlatsContainer::SetItem() {
 
 }
 
+
 void FlatsContainer::ShowAllFlats() const {
 	for (auto it = _flats.begin(); it != _flats.end(); it++) {
 		cout << (*it)->ToString();
 	}
 	cout << endl;
 }
+
 
 void FlatsContainer::FindItem(double area) {
 
@@ -55,29 +58,29 @@ void FlatsContainer::FindItem(double area) {
 	cout << endl;
 }
 
+
 void FlatsContainer::AddFlat(shared_ptr<Flat> flat) {
-	auto resAdd =_flatsById.emplace(flat->GetId(), flat);//довавить в мап по айди
+	auto resAdd =_flatsById.emplace(flat->GetId(), flat);
 	if (!resAdd.second) {
 		cout << "Such an id exists" << endl << endl;
 	}
-	_flats.push_back(flat);//добавить в вектор
-	_flatsByArea[flat->GetArea()].insert(flat->GetId());//добавить в мап по площади
+	_flats.push_back(flat);
+	_flatsByArea[flat->GetArea()].insert(flat->GetId());
 }
 
-
-//quick
 shared_ptr<Flat> FlatsContainer::GetFlatById(FlatId id) const {
-	return (*_flatsById.find(id)).second;//возвращаем квартиру по айди
+	return (*_flatsById.find(id)).second;
 }
+
 
 vector<FlatId>  FlatsContainer::QuickFindItemByArea(FlatArea FindArea) {
 	vector<FlatId> idByArea;
-	auto begIt = _flatsByArea.lower_bound(FindArea * 0.9);//итератор на первый элемент больший или равный заданному значению
-	auto endIt = _flatsByArea.lower_bound(FindArea * 1.1);//
+	auto begIt = _flatsByArea.lower_bound(FindArea * 0.9);
+	auto endIt = _flatsByArea.lower_bound(FindArea * 1.1);
 	if (begIt != endIt) {
-		for (auto areaIt = begIt; areaIt != endIt; areaIt++) {//идем по всем итераторам в отрезке
-			auto& flatsOfThisArea = areaIt->second;			//выбираем множество айди, которые принадлежат такой площади
-			copy(flatsOfThisArea.begin(), flatsOfThisArea.end(), back_inserter(idByArea));//добавляет все множество в idByArea(вызывает пушбэк для каждого айди в сете)
+		for (auto areaIt = begIt; areaIt != endIt; areaIt++) {
+			auto& flatsOfThisArea = areaIt->second;
+			copy(flatsOfThisArea.begin(), flatsOfThisArea.end(), back_inserter(idByArea));
 		}
 	}
 	return idByArea;
