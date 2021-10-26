@@ -88,10 +88,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)\Visual Leak Detector\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Visual Leak Detector\lib\Win32;$(SolutionDir)\Visual Leak Detector\lib\Win64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -139,7 +141,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Lab_4_correct.cpp" />
+    <ClCompile Include="FlatsContainer.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="CandidatesContainer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="BaseContainer.h" />
+    <ClInclude Include="Candidate.h" />
+    <ClInclude Include="Flat.h" />
+    <ClInclude Include="FlatsContainer.h" />
+    <ClInclude Include="CandidatesContainer.h" />
+    <ClInclude Include="Interactor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
