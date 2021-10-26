@@ -40,7 +40,7 @@ void CandidatesContainer::FindItem(double rating) {
 	}
 }
 
-void CandidatesContainer::ShowCandidates() {
+void CandidatesContainer::ShowCandidates() const{
 	for (auto& candidate : _candidates) {
 		cout << candidate.second->ToString();
 	}

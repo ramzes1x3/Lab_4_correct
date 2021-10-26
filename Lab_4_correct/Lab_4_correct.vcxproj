@@ -144,13 +144,16 @@
     <ClCompile Include="FlatsContainer.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="CandidatesContainer.cpp" />
+    <ClCompile Include="Interactor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseContainer.h" />
     <ClInclude Include="Candidate.h" />
+    <ClInclude Include="DialogMenuItem.h" />
     <ClInclude Include="Flat.h" />
     <ClInclude Include="FlatsContainer.h" />
     <ClInclude Include="CandidatesContainer.h" />
+    <ClInclude Include="FuncObjectsForMenu.h" />
     <ClInclude Include="Interactor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
