@@ -6,7 +6,7 @@ void Console::Run() {
 
 	while (action) {
 		try {
-			cout << "1 Operations with flats" << endl;
+			cout << "1 Operation with flats" << endl;
 			cout << "2 Operations with candidates" << endl;
 			cout << "0 Exit" << endl;
 			cin >> operation;
